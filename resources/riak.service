@@ -1,0 +1,14 @@
+[Unit]
+Description=redborder riak service
+
+[Service]
+ExecStart=/usr/sbin/riak start
+Type=Forking
+PIDFile=/var/run/riak/riak.pid
+User=root
+Group=root
+LimitNOFILE=65536
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

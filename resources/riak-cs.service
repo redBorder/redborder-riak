@@ -1,0 +1,16 @@
+[Unit]
+Description=redborder riak-cs service
+Requires=riak.service
+After=riak.service
+
+[Service]
+ExecStart=/usr/sbin/riak-cs start
+Type=Forking
+PIDFile=/var/run/riak-cs/riak-cs.pid
+User=root
+Group=root
+LimitNOFILE=65536
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

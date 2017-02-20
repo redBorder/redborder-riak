@@ -1,0 +1,16 @@
+[Unit]
+Description=redborder stanchion service
+Requires=riak.service
+After=riak.service
+
+[Service]
+ExecStart=/usr/sbin/stanchion start
+Type=Forking
+PIDFile=/var/run/stanchion/stanchion.pid
+User=root
+Group=root
+LimitNOFILE=65536
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
