@@ -43,9 +43,12 @@ else
     f.close
   rescue
     if out.include?("The specified email address has already been registered")
-      printf "INFO: the username #{username} (#{email}) already exists into riak-cs\n"
+      e = "INFO: the username #{username} (#{email}) already exists into riak-cs\n"
+      printf e
     else
-      printf "ERROR: #{out}\n"
+      e = "ERROR: #{out}\n"
+      printf e
+      raise e
       ret=1
     end
   end
