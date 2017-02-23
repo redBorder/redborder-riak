@@ -4,8 +4,7 @@ CDOMAIN=File.open("/etc/redborder/cdomain").first.chomp
 SSL_CERT_FILE = "SSL_CERT_FILE=#{ENV['SSL_CERT_FILE'].nil? ? '/etc/nginx/ssl/s3.crt' : ENV['SSL_CERT_FILE']}"
 
 
-#buckets=["redborder", "rbookshelf"]
-buckets=["redborder"]
+buckets=["redborder", "rbookshelf"]
 
 buckets.each do |b|
   # Check if bucket is created
